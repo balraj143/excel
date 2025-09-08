@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import axiosInstance from "../utils/axiosInstance";
 
 const Dashboard = () => {
   const [uploads, setUploads] = useState([]);
@@ -14,7 +15,7 @@ const Dashboard = () => {
   const fetchUploads = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/upload", {
+      const res = await axiosInstance.get("/api/upload", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUploads(res.data.uploads);
@@ -30,7 +31,7 @@ const Dashboard = () => {
   const handleDelete = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/upload/${id}`, {
+      await axiosInstance.delete(`/api/upload/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchUploads();
@@ -48,8 +49,8 @@ const Dashboard = () => {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.put(
-        `http://localhost:5000/api/upload/${fileToUpdate._id}`,
+      await axiosInstance.put(
+        `/api/upload/${fileToUpdate._id}`,
         formData,
         {
           headers: {
