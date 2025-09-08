@@ -1,5 +1,5 @@
 // ChartView.jsx
-import axiosInstance from "../src/utils/axiosInstance";
+import axiosInstance from "../../utils/axiosInstance";
 
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
