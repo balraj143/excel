@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import axiosInstance from "../utils/axiosInstance";
 
 const UploadHistory = () => {
   const [uploads, setUploads] = useState([]);
@@ -10,7 +11,7 @@ const UploadHistory = () => {
     const fetchHistory = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/admin/upload", {
+        const res = await axiosInstance.get("/api/admin/upload", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
