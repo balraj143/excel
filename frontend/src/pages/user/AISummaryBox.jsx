@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import axiosInstance from "../utils/axiosInstance";
+import axiosInstance from "../src/utils/axiosInstance";
 
 const AISummaryBox = ({ uploadId }) => {
   const [summary, setSummary] = useState("");
