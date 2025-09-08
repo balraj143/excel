@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import axiosInstance from "../utils/axiosInstance";
+import axiosInstance from "../src/utils/axiosInstance";
 import { motion } from "framer-motion";
 import {
   LayoutDashboard,
