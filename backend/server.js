@@ -10,7 +10,17 @@ const uploadRoutes = require("./routes/uploadRoutes");
 
 const app = express();
 
-app.use(cors());
+const allowedOrigins = [
+  "http://localhost:5173", // Vite local
+  "http://localhost:3000", // CRA local
+  "https://excel-frontend-edvk.onrender.com", // Render frontend
+];
+
+
+app.use(cors({
+  origin: "https://excel-frontend-edvk.onrender.com", // your frontend domain
+  credentials: true, // allow cookies/headers
+}));
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI)
