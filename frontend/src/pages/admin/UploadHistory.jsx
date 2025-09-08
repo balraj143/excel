@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import axiosInstance from "../src/utils/axiosInstance";
+import axiosInstance from "../../utils/axiosInstance";
 
 const UploadHistory = () => {
   const [uploads, setUploads] = useState([]);
