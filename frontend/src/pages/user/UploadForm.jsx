@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import axiosInstance from "../utils/axiosInstance";
 // import AISummaryBox from "../user/AISummaryBox";
 
 const UploadForm = () => {
@@ -17,7 +18,7 @@ const UploadForm = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await axios.post("http://localhost:5000/api/upload", formData, {
+      const res = await axiosInstance.post("/api/upload", formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
