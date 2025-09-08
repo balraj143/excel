@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import axiosInstance from "../utils/axiosInstance";
 
 const AISummaryBox = ({ uploadId }) => {
   const [summary, setSummary] = useState("");
@@ -15,8 +16,8 @@ const AISummaryBox = ({ uploadId }) => {
       setError("");
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get(
-          `http://localhost:5000/api/upload/${uploadId}/summary`,
+        const res = await axiosInstance.get(
+          `/api/upload/${uploadId}/summary`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
