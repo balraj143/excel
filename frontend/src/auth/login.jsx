@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import axiosInstance from "../src/utils/axiosInstance";
+
 import { useNavigate } from "react-router-dom";
 import PasswordInput from "../components/PasswordInput";
 const Login = () => {
@@ -20,7 +22,7 @@ const Login = () => {
   const handleLogin = async (e) => {
   e.preventDefault();
   try {
-    const res = await axios.post("/api/auth/login", formData);
+    const res = await axiosInstance.post("/api/auth/login", formData);
     
     // Debugging output to verify backend response structure
     console.log("Login Response:", res.data); 
