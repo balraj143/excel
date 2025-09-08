@@ -20,7 +20,7 @@ const Login = () => {
   const handleLogin = async (e) => {
   e.preventDefault();
   try {
-    const res = await axios.post("http://localhost:5000/api/auth/login", formData);
+    const res = await axios.post("/api/auth/login", formData);
     
     // Debugging output to verify backend response structure
     console.log("Login Response:", res.data); 
