@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import axiosInstance from "../utils/axiosInstance";
 import { motion } from "framer-motion";
 import {
   LayoutDashboard,
@@ -33,7 +34,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/api/admin/stats", {
+        const { data } = await axiosInstance.get("/api/admin/stats", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -52,7 +53,7 @@ const AdminDashboard = () => {
 useEffect(() => {
   const fetchRecentUploads = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/api/admin/recent-uploads", {
+      const { data } = await axiosInstance.get("/api/admin/recent-uploads", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -73,7 +74,7 @@ useEffect(() => {
   const fetchUploadStats = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/admin/user-upload-stats", {
+      const res = await axiosInstance.get("/api/admin/user-upload-stats", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
