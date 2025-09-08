@@ -1,5 +1,5 @@
 // ChartView.jsx
-
+import axiosInstance from "../utils/axiosInstance";
 
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
@@ -39,8 +39,8 @@ const ChartView = () => {
     const fetchSummary = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get(
-          "http://localhost:5000/api/upload/monthly-summary",
+        const res = await axiosInstance.get(
+          "/api/upload/monthly-summary",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
