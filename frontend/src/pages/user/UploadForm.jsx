@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import axiosInstance from "../utils/axiosInstance";
+import axiosInstance from "../src/utils/axiosInstance";
 // import AISummaryBox from "../user/AISummaryBox";
 
 const UploadForm = () => {
